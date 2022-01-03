@@ -1,0 +1,52 @@
+{
+	// Place your discord-bot-v2 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"command": {
+		"prefix": "command",
+		"body": [
+		  "const { SlashCommandBuilder } = require('@discordjs/builders');",
+		  "module.exports = {",
+		  "    name: '${1:cmdName}',",
+		  "    alias: '${2:alias}',",
+		  "    help: '${3:help}',",
+		  "    description: '${4:description}',",
+		  "    isSlash: ${5|true, false|},",
+		  "    data: new SlashCommandBuilder()",
+		  "        .setName('${6:commandName}')",
+		  "        .setDescription('${7:commandDesc}'),",
+		  "",
+		  "    /**",
+		  "     * Function for recieving message",
+		  "     * @param {client} client The instanciating client",
+		  "     * @param {args} args The args that were sent with the message",
+		  "     */",
+		  "    async run(client, message, args) {",
+		  "        ",
+		  "    },",
+		  "",
+		  "    /**",
+		  "     * Function for recieving interaction",
+		  "     * @param {interaction} interaction The interaction that ran the command",
+		  "     */",
+		  "    async execute(interaction) {",
+		  "",
+		  "    }",
+		  "}"
+		],
+		"description": "Template for a new command"
+	  }
+}
