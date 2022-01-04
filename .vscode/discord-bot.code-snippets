@@ -31,10 +31,10 @@
 		  "",
 		  "    /**",
 		  "     * Function for recieving message",
-		  "     * @param {client} client The instanciating client",
+		  "     * @param {message} message The instanciating message",
 		  "     * @param {args} args The args that were sent with the message",
 		  "     */",
-		  "    async run(client, message, args) {",
+		  "    async run(message, args) {",
 		  "        ",
 		  "    },",
 		  "",
@@ -48,5 +48,16 @@
 		  "}"
 		],
 		"description": "Template for a new command"
+	  },
+	  "event": {
+		"prefix": "event",
+		"body": [
+		  "module.exports = {",
+		  "    run(client) {",
+		  "",
+		  "    }",
+		  "}"
+		],
+		"description": "Template for a new event"
 	  }
 }
