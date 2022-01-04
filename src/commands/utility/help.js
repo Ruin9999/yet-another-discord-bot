@@ -27,7 +27,6 @@ module.exports = {
             await message.channel.send("Invalid Arguments!");
             return;
         }
-
         GetBotCommands(message, ...args);
     },
 
@@ -45,13 +44,14 @@ async function GetBotCommands(message, args) {
     let embed = new MessageEmbed();
     let commandList = [];
 
+    //See if command is valid.
     const command = client.commands.get(args);
-    if(command) { //If we can find command.
+    if(command) { 
             commandList.push({
                 name : command.name,
                 value : command.help
             })
-    } else { //If we cannot find command
+    } else { 
             const commandFolders = fs.readdirSync("./src/commands");
             for(const folder of commandFolders) {
                 const commandFiles  = fs.readdirSync(`./src/commands/${folder}`);
