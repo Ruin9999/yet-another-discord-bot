@@ -1,7 +1,7 @@
 const config = require("../../../config.json");
 
 module.exports = {
-    run(client) {
+    async run(client) {
         client.on("messageCreate", async (message) => {
             if(message.author.bot || !message.content.startsWith(config.prefix)) return;
         

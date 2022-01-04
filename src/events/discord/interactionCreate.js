@@ -1,5 +1,5 @@
 module.exports = {
-    run(client) {
+    async run(client) {
         client.on("interactionCreate", async (interaction) => {
             if(!interaction.isCommand()) return;
             await interaction.deferReply();

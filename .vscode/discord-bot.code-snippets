@@ -34,7 +34,7 @@
 		  "     * @param {message} message The instanciating message",
 		  "     * @param {args} args The args that were sent with the message",
 		  "     */",
-		  "    async run(message, args) {",
+		  "    async run(message, ...args) {",
 		  "        ",
 		  "    },",
 		  "",
@@ -48,16 +48,27 @@
 		  "}"
 		],
 		"description": "Template for a new command"
-	  },
-	  "event": {
-		"prefix": "event",
-		"body": [
-		  "module.exports = {",
-		  "    run(client) {",
-		  "",
-		  "    }",
-		  "}"
-		],
-		"description": "Template for a new event"
-	  }
+	},
+	"event": {
+	"prefix": "event",
+	"body": [
+		"module.exports = {",
+		"    run(client) {",
+		"",
+		"    }",
+		"}"
+	],
+	"description": "Template for a new event"
+	},
+	"send": {
+	"prefix": "send",
+	"body": [
+		"try {",
+		"        await message.editReply(${1:return});",
+		"    } catch (err) {",
+		"        await message.channel.send(${1:return});",
+		"    }"
+	],
+	"description": "Template for replying"
+	}
 }

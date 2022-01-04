@@ -20,8 +20,6 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 
-module.exports = client;
-
 RegisterEvents();
 RegisterCommands();
 
