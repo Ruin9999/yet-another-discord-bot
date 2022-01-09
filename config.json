@@ -1,6 +1,6 @@
 {
     "prefix" : "+!",
     "name" : "Grogger",
-    "inviteLink" : "https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=applications.commands%20bot",
+    "inviteLink" : "https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands",
     "theme" : "#00FF00"
 }
