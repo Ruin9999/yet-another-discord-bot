@@ -12,7 +12,7 @@ module.exports = {
             //Get command
             let command = client.commands.get(cmdName);
             if(!command) {
-                const alias = client.commands.get(cmdName);
+                const alias = client.aliases.get(cmdName);
                 if(!alias) {
                     await message.channel.send("No such command!");
                     return;

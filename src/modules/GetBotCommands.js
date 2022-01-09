@@ -9,6 +9,7 @@ module.exports = function GetBotCommands() {
 
     const commandFolders = fs.readdirSync("./src/commands");
     for(const folder of commandFolders) {
+        if(folder == "nsfw") continue;
         const commandFiles  = fs.readdirSync(`./src/commands/${folder}`);
         for(const file of commandFiles) {
             const command = require(`../commands/${folder}/${file}`);
