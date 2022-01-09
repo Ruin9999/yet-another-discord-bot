@@ -19,11 +19,14 @@ const client = new Client({
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.queue = new Map(); //A map of guildIds to their respective music objects;
 
 RegisterEvents();
 RegisterCommands();
 
 client.login(process.env.DISCORD_TOKEN);
+
+module.exports = client;
 
 //Register Events
 function RegisterEvents() {

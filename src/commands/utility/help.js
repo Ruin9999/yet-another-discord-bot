@@ -1,7 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require("discord.js");
-const { BuildEmbed } = require("../../utils/BuildEmbed");
-const fs = require("fs");
+
+const { BuildEmbed } = require("../../modules/BuildEmbed");
+const GetBotCommands = require("../../modules/GetBotCommands");
+const config = require("../../../config.json");
 
 module.exports = {
     name: 'help',
@@ -23,11 +25,39 @@ module.exports = {
      * @param {args} args The args that were sent with the message
      */
     async run(message, ...args) {
-        if(args.length > 1) {
-            await message.channel.send("Invalid Arguments!");
-            return;
+        let embed = new MessageEmbed();
+        let commandList = [];
+
+        switch(args.length) {
+            case 1:
+                const client = require("../../index.js");
+                const command = client.commands.get(args.toString());
+                if(!command) {
+                    commandList.push({
+                        name : `Command not found!`,
+                        value : "```" + `Command not found!` + "```"
+                    })
+                } else {
+                    commandList.push({
+                        name : `${command.name}`,
+                        value : `${command.help}`
+                    })
+                }
+                break;
+            default:
+                commandList = GetBotCommands();
+                break;
         }
-        GetBotCommands(message, ...args);
+
+        embed = BuildEmbed(
+            embed,
+            {
+                title : `${config.name} commands`,
+                fields : commandList
+            }
+        )
+
+        await message.channel.send({embeds : [embed]});
     },
 
     /**
@@ -35,46 +65,35 @@ module.exports = {
      * @param {interaction} interaction The interaction that ran the command
      */
     async execute(interaction) {
-        GetBotCommands(interaction, interaction.options.getString("command"));
-    }
-}
+        let embed = new MessageEmbed();
+        let commandList = [];
 
-async function GetBotCommands(message, args) {
-
-    let embed = new MessageEmbed();
-    let commandList = [];
-
-    //See if command is valid.
-    const command = client.commands.get(args);
-    if(command) { 
-            commandList.push({
-                name : command.name,
-                value : command.help
-            })
-    } else { 
-            const commandFolders = fs.readdirSync("./src/commands");
-            for(const folder of commandFolders) {
-                const commandFiles  = fs.readdirSync(`./src/commands/${folder}`);
-                for(const file of commandFiles) {
-                    const command = require(`../${folder}/${file}`);
-                    commandList.push({
-                        name : command.name,
-                        value : command.description
-                    })
-                }
+        if(interaction.options.getString("command")) {
+            const client = require("../../index.js");
+            const command = client.commands.get(interaction.options.getString("command"));
+            if(!command) {
+                commandList.push({
+                    name : `Command not found!`,
+                    value : "```" + `Command not found!` + "```"
+                })
+            } else {
+                commandList.push({
+                    name : `${command.name}`,
+                    value : `${command.help}`
+                })
             }
+        } else {
+            commandList = GetBotCommands();
+        }
+
+        embed = BuildEmbed(
+            embed,
+            {
+                title : `${config.name} commands`,
+                fields : commandList
+            }
+        )
+
+        await interaction.editReply({embeds : [embed]});
     }
-
-    embed = BuildEmbed(
-        embed,
-        {
-            fields: commandList,
-        }
-    )
-
-    try {
-            await message.editReply({embeds : [embed]});
-        } catch (err) {
-            await message.channel.send({embeds : [embed]});
-        }
 }

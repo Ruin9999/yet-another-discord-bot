@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+
 module.exports = {
     name: 'echo',
     alias: 'echo',
@@ -25,7 +26,8 @@ module.exports = {
             return;
         }
         
-        Echo(message, args);
+        const msg = args.toString().replaceAll(",", " ");
+        await message.channel.send(msg);
     },
 
     /**
@@ -33,15 +35,7 @@ module.exports = {
      * @param {interaction} interaction The interaction that ran the command
      */
     async execute(interaction) {
-        Echo(interaction, interaction.options.getString("text"));
-    }
-}
-
-async function Echo(message, ...args) {
-    const msg = args.toString().replaceAll(",", " ");
-    try {
-        await message.editReply(msg);
-    } catch (err) {
-        await message.channel.send(msg);
+        const msg = interaction.options.getString("text");
+        await interaction.editReply(msg);
     }
 }

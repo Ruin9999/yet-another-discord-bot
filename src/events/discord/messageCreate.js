@@ -10,10 +10,20 @@ module.exports = {
             const args = msg;
         
             //Get command
-            let cmd = client.commands.get(cmdName);
-            if(!cmd) cmd = client.commands.get(client.aliases.get(cmdName));
-            if(!cmd) await message.channel.send("No such command!")
-            else await cmd.run(message, ...args);
+            let command = client.commands.get(cmdName);
+            if(!command) {
+                const alias = client.commands.get(cmdName);
+                if(!alias) {
+                    await message.channel.send("No such command!");
+                    return;
+                } else {
+                    command = client.commands.get(alias);
+                }
+            }
+
+            if(!message.member.permissions.has(command.userPerms || [])) return message.channel.send("You don't have enough permissions!");
+
+            await command.run(message, ...args);
         })
     }
 }

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require("discord.js");
-const { BuildEmbed } = require("../../utils/BuildEmbed");
+const { BuildEmbed } = require("../../modules/BuildEmbed");
 const config = require(`../../../config.json`);
 
 module.exports = {
@@ -15,10 +15,21 @@ module.exports = {
 
     /**
      * Function for recieving message
+     * @param {message} message The instanciating message
      * @param {args} args The args that were sent with the message
      */
     async run(message, ...args) {
-        SendInvite(message);
+        let embed = new MessageEmbed();
+        
+        embed = BuildEmbed(
+            embed,
+            {
+                title : "Invite Link",
+                description : `${config.inviteLink}`
+            }
+        )
+
+        await message.channel.send({embeds : [embed]});
     },
 
     /**
@@ -26,23 +37,16 @@ module.exports = {
      * @param {interaction} interaction The interaction that ran the command
      */
     async execute(interaction) {
-        SendInvite(interaction);
-    }
-}
+        let embed = new MessageEmbed();
 
-async function SendInvite(message) {
-    let embed = new MessageEmbed();
-    embed = BuildEmbed(
-        embed,
-        {
-            title : "Invite Link",
-            description : `${config.inviteLink}`
-        }
-    )
+        embed = BuildEmbed(
+            embed,
+            {
+                title : "Invite Link",
+                description : `${config.inviteLink}`
+            }
+        )
 
-    try {
         await message.editReply({embeds : [embed]});
-    } catch (err) {
-        await message.channel.send({embeds : [embed]});
     }
 }

@@ -1,14 +1,15 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { leave } = require("../../modules/MusicManager");
 
 module.exports = {
-    name: 'ping',
-    alias: 'ping',
-    help: 'ping',
-    description: 'Replies with Pong!',
+    name: 'stop',
+    alias: 'stop',
+    help: 'stop',
+    description: 'Stops playing a track.',
     isSlash: true,
     data: new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Replies with Pong!'),
+        .setName('stop')
+        .setDescription('Stops playing a track.'),
 
     /**
      * Function for recieving message
@@ -16,7 +17,10 @@ module.exports = {
      * @param {args} args The args that were sent with the message
      */
     async run(message, ...args) {
-        await message.channel.send("Pong!");
+        
+        //Stop playing audio
+        leave(message);
+        await message.channel.send("🚫 Stopped playing...");
     },
 
     /**
@@ -24,6 +28,9 @@ module.exports = {
      * @param {interaction} interaction The interaction that ran the command
      */
     async execute(interaction) {
-        await interaction.editReply("Pong!");
+        
+        //Stop playing audio
+        leave(interaction);
+        await interaction.editReply("🚫 Stopped playing...");
     }
 }

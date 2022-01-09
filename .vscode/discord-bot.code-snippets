@@ -19,6 +19,7 @@
 		"prefix": "command",
 		"body": [
 		  "const { SlashCommandBuilder } = require('@discordjs/builders');",
+		  "",
 		  "module.exports = {",
 		  "    name: '${1:cmdName}',",
 		  "    alias: '${2:alias}',",
@@ -60,15 +61,4 @@
 	],
 	"description": "Template for a new event"
 	},
-	"send": {
-	"prefix": "send",
-	"body": [
-		"try {",
-		"        await message.editReply(${1:return});",
-		"    } catch (err) {",
-		"        await message.channel.send(${1:return});",
-		"    }"
-	],
-	"description": "Template for replying"
-	}
 }

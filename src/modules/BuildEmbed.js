@@ -1,6 +1,6 @@
 const config = require("../../config.json");
 
-module.exports.BuildEmbed = function BuildEmbed(embed, { title, url, author, description, image, thumbnail, fields }) {
+module.exports.BuildEmbed = function (embed, { title, url, author, description, image, thumbnail, fields }) {
     embed.setColor(config.theme);
     if(title) embed.setTitle(title.toString());
     if(url) embed.setURL(url.toString());

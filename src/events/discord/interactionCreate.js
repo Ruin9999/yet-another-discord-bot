@@ -6,9 +6,11 @@ module.exports = {
         
             //Get command
             let cmd = client.commands.get(interaction.commandName);
-            if(!cmd) cmd = client.commands.get(client.alises.get(interaction.commandName));
-            if(!cmd) await interaction.editReply("No such command!");
-            else await cmd.execute(interaction);
+
+            if(!interaction.member.permissions.has(cmd.userPerms || [])) return message.channel.send("You don't have enough permissions!");
+            
+            //There is no reason to check if the command is valid as only valid ones will be allowed through slash commands.
+            await cmd.execute(interaction);
         })
     }
 }
