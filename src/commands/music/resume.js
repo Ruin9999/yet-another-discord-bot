@@ -19,7 +19,10 @@ module.exports = {
     async run(message, ...args) {
         
         //Resumes playing audio
-        resume(message);
+        const res = resume(message);
+        if(!res) {
+            return message.channel.send("There is nothing playing!");
+        }
         await message.channel.send(`▶️ Resumed playing...`);
     },
 
@@ -30,7 +33,10 @@ module.exports = {
     async execute(interaction) {
 
         //Resumes playing audio
-        resume(interaction);
+        const res = resume(interaction);
+        if(!res) {
+            return interaction.editReply("There is nothing playing!");
+        }
         await interaction.editReply(`▶️ Resumed playing...`);
     }
 }

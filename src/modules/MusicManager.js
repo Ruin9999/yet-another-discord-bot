@@ -56,9 +56,19 @@ module.exports = {
      */
     resume(message) {
         const queueObject = message.client.queue.get(message.guild.id);
-        queueObject.player.unpause();
+        if(!queueObject) {
+            return false;
+        }
+        module.exports.resume(message);
     },
 
+    loop(message) {
+        const queueObject = message.client.queue.get(message.guild.id);
+
+        //Toggles between looping and not looping
+        queueObject.loop = !queueObject.loop;
+    },
+    
     /**
      * Function to skip to the next audio track
      * @param {message} message The instanciating message
@@ -183,6 +193,19 @@ module.exports = {
 
             //Make player play next track once current once is over
             queueObject.player.on(AudioPlayerStatus.Idle, () => {
+                
+                //Check if we are looping
+                if(queueObject.loop) {
+                    //Add current song into the back of the queue
+                    queueObject.queue.push(nextAudio);
+                }
+
+                module.exports.playAudio(message);
+            })
+
+            //Handle player errors
+            queueObject.player.on("error", err => {
+                console.log(err.message);
                 module.exports.playAudio(message);
             })
 

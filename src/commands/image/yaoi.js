@@ -8,11 +8,11 @@ module.exports = {
     name: 'yaoi',
     alias: 'yaoi',
     help: 'yaoi',
-    description: 'Gets an image. [NSFW]',
+    description: 'Gets an image.',
     isSlash: true,
     data: new SlashCommandBuilder()
         .setName('yaoi')
-        .setDescription('Gets an image. [NSFW]'),
+        .setDescription('Gets an image.'),
 
     /**
      * Function for recieving message
