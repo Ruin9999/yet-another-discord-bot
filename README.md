@@ -12,7 +12,7 @@
 <ul>
     <li> • 📷 Images :  <code>coffee</code>, <code>food</code>, <code>holo</code> etc..</li>
     <li> • 🔨 Server Moderation : <code>ban</code>, <code>unban</code>, <code>mute</code>, <code>unmute</code> etc..</li>
-    <li> • 🎧 Music : <code>play</code>, <code>pause</code>, <code>loop</code>, <code>skip</code> etc..<li>
+    <li> • 🎧 Music : <code>play</code>, <code>pause</code>, <code>loop</code>, <code>skip</code> etc..</li>
     <li> • 🔧 Utility : <code>ping</code>, <code>getping</code> etc..</li>
     <li> • 🙈 Hidden : hmm what is this about?</li>
 </ul>
