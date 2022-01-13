@@ -18,7 +18,7 @@ module.exports = {
      */
     async run(message, ...args) {
         
-        const res = await loop(message);
+        await loop(message);
 
         await message.channel.send(message.client.queue.get(message.guild.id).loop ? "🔁 Looping..." : "🛑 Stopped Looping...")
     },
@@ -28,6 +28,8 @@ module.exports = {
      * @param {interaction} interaction The interaction that ran the command
      */
     async execute(interaction) {
-
+        await loop(interaction);
+        
+        await interaction.editReply(interaction.client.queue.get(interaction.guild.id).loop ? "🔁 Looping..." : "🛑 Stopped Looping...");
     }
 }

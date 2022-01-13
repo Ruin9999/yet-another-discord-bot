@@ -20,10 +20,12 @@ for (const folder of commandFolders) {
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
-rest.put(Routes.applicationGuildCommands(process.env.APPLICATION_ID, process.env.GUILD_ID), { body: commands })
+//Registers slash commands to a specific guild, use this for development
+/* rest.put(Routes.applicationGuildCommands(process.env.APPLICATION_ID, process.env.GUILD_ID), { body: commands })
 	.then(() => console.log('Successfully registered application commands.'))
-	.catch(console.error);
+	.catch(console.error); */
 
-	rest.put(Routes.applicationCommands(process.env.APPLICATION_ID), { body: commands })
-	.then(() => console.log('Successfully registered guild commands.'))
-	.catch(console.error);
+//This is to register slash commands to every guild that the bot is in
+rest.put(Routes.applicationCommands(process.env.APPLICATION_ID), { body: commands })
+.then(() => console.log('Successfully registered guild commands.'))
+.catch(console.error);
