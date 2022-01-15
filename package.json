@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "deploy": "node src/deploy.js",
-    "start": "node src/shard.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
