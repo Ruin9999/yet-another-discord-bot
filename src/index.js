@@ -15,18 +15,18 @@ const client = new Client({
     ]
 })
 
-client.commands = new Collection();
+/* client.commands = new Collection();
 client.aliases = new Collection();
 client.queue = new Map(); //A map of guildIds to their respective music objects;
 
 RegisterEvents();
 RegisterCommands();
-
+ */
 client.login(process.env.DISCORD_TOKEN);
 
 module.exports = client;
 
-//Register Events
+/* //Register Events
 function RegisterEvents() {
     const eventFolders = fs.readdirSync("./src/events");
     for(const folder of eventFolders) {
@@ -50,4 +50,4 @@ function RegisterCommands() {
             client.aliases.set(command.alias, command.name);
         }
     }
-}
+} */
