@@ -22,7 +22,7 @@ client.queue = new Map(); //A map of guildIds to their respective music objects;
 RegisterEvents();
 RegisterCommands();
 
-client.login(OTIzODIwOTI1NjUxMTQ0NzI0.YcVlSA.X6l6cKFy5WrP59te6On3ME53y_8);
+client.login(process.env.DISCORD_TOKEN);
 
 module.exports = client;
 
