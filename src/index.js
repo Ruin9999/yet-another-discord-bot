@@ -1,5 +1,5 @@
-const { Client, Intents, Collection } = require("discord.js");
-const fs = require("fs");
+const { Client/* , Intents, Collection */ } = require("discord.js");
+/* const fs = require("fs"); */
 
 //Create new bot.
 const client = new Client({
@@ -24,7 +24,7 @@ RegisterCommands();
  */
 client.login(process.env.DISCORD_TOKEN);
 
-module.exports = client;
+/* module.exports = client; */
 
 /* //Register Events
 function RegisterEvents() {
