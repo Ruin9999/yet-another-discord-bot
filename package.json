@@ -2,6 +2,9 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "deploy": "node src/deploy.js",
     "start": "node src/index.js"
