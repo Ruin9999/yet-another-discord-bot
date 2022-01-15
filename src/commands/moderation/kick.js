@@ -63,7 +63,6 @@ module.exports = {
         //Check if user is kicking himself
         if(target === interaction.member) return interaction.editReply("You cannot kick yourself!");
 
-        console.log(target);
         //Check if user is kicking someone of higher rank
         if(target.roles.highest.position >= interaction.member.roles.highest.position) return interaction.editReply("You cannot kick someone who has and equal/higher rank than you!");
 
