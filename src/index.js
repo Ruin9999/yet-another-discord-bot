@@ -3,7 +3,7 @@ const fs = require("fs");
 
 //Create new bot.
 const client = new Client({
-    intents : [
+    /* intents : [
         Intents.FLAGS.GUILDS,
         Intents.FLAGS.GUILD_BANS,
         Intents.FLAGS.GUILD_VOICE_STATES,
@@ -12,7 +12,7 @@ const client = new Client({
         Intents.FLAGS.DIRECT_MESSAGES,
         Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
         Intents.FLAGS.DIRECT_MESSAGES
-    ]
+    ] */
 })
 
 /* client.commands = new Collection();
