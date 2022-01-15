@@ -1,9 +1,9 @@
-const { Client/* , Intents, Collection */ } = require("discord.js");
-/* const fs = require("fs"); */
+const { Client, Intents, Collection } = require("discord.js");
+const fs = require("fs");
 
 //Create new bot.
 const client = new Client({
-    /* intents : [
+    intents : [
         Intents.FLAGS.GUILDS,
         Intents.FLAGS.GUILD_BANS,
         Intents.FLAGS.GUILD_VOICE_STATES,
@@ -12,21 +12,21 @@ const client = new Client({
         Intents.FLAGS.DIRECT_MESSAGES,
         Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
         Intents.FLAGS.DIRECT_MESSAGES
-    ] */
+    ]
 })
 
-/* client.commands = new Collection();
+client.commands = new Collection();
 client.aliases = new Collection();
 client.queue = new Map(); //A map of guildIds to their respective music objects;
 
 RegisterEvents();
 RegisterCommands();
- */
+
 client.login(process.env.DISCORD_TOKEN);
 
-/* module.exports = client; */
+module.exports = client;
 
-/* //Register Events
+//Register Events
 function RegisterEvents() {
     const eventFolders = fs.readdirSync("./src/events");
     for(const folder of eventFolders) {
@@ -50,4 +50,4 @@ function RegisterCommands() {
             client.aliases.set(command.alias, command.name);
         }
     }
-} */
+}
