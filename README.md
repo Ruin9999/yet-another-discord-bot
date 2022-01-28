@@ -2,7 +2,7 @@
 <p>Yet another discord bot made with <a href="discordjs.org">DiscordJS</a><br />
 
 Invite link :
-<a href="https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands">https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands</a></p>
+<a href="https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands">link</a></p>
 
 <h2 align="center">Why</h2>
 <p>Why did I create another discord bot when we already have plenty of other bots to choose from?</p>

@@ -58,8 +58,6 @@ module.exports = {
             }
         )
 
-        console.log(message.client.user);
-
         /* https://cdn.discordapp.com/avatars/923820925651144724/9fa912ed9c63e67eac729a08d8665dcd.webp?size=128 */
 
         await message.channel.send({embeds : [embed]});
