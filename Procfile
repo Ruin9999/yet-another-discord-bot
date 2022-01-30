@@ -1,1 +1,1 @@
-worker: node ./shard
+worker: nodemon ./shard.ts

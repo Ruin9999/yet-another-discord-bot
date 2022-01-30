@@ -16,7 +16,8 @@
     "discord-api-types": "^0.26.1",
     "discord-music-player": "^8.3.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^14.3.0"
+    "dotenv": "^14.3.0",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
