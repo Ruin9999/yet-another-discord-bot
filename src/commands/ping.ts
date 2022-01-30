@@ -11,9 +11,11 @@ const command : ICommand = {
     userPermissions: [],
     botPermissions: [],
     run: async (message : Message) => {
-        
+        return `Pong!`;
     },
     callback: async (interaction : Interaction) => {
-
+        return `Pong!`;
     }
 }
+
+export default command;
