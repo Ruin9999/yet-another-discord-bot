@@ -1,1 +1,1 @@
-worker: node ./src/shard
+worker: node ./shard
