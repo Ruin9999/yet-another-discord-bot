@@ -2,37 +2,23 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "16.x"
-  },
+  "main": "index.js",
   "scripts": {
-    "deploy": "node src/deploy.js",
-    "start": "node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ruin9999/discord-bot.git"
+    "start": "ts-node shard.ts",
+    "dev": "nodemon index.ts",
+    "tsc": "tsc -w --skipLibCheck"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ruin9999/discord-bot/issues"
-  },
-  "homepage": "https://github.com/Ruin9999/discord-bot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.11.0",
-    "@discordjs/opus": "^0.5.3",
-    "@discordjs/rest": "^0.2.0-canary.0",
-    "@discordjs/voice": "^0.7.5",
-    "axios": "^0.24.0",
+    "@discordjs/opus": "^0.7.0",
     "discord-api-types": "^0.26.1",
+    "discord-music-player": "^8.3.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^10.0.0",
-    "ffmpeg-static": "^4.4.1",
-    "graphql-request": "^3.7.0",
-    "libsodium-wrappers": "^0.7.9",
-    "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^4.9.2"
+    "dotenv": "^14.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

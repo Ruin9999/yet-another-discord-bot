@@ -1,34 +1,32 @@
-<h1 align="center">Yet another discord bot</h1>
-<p>Yet another discord bot made with <a href="discordjs.org">DiscordJS</a><br />
 
-Invite link :
-<a href="https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands">link</a></p>
+# Yet another discord bot
 
-<h2 align="center">Why</h2>
-<p>Why did I create another discord bot when we already have plenty of other bots to choose from?</p>
-<p>This bot is my attempt at trying to make an open source project, to not only try and better myself at standardizing the way I structure code, but to also learn everything else that comes with it... coding, deployment and mantaining. </p>
-<p>If you have any feedback, comments or requests, please feel free to create an <a href="https://github.com/Ruin9999/discord-bot/issues">issue</a> and I will be on it asap.
+Yet another discord bot made with [DiscordJS](https://discord.js.org).  
+Invite [link.](https://discord.com/api/oauth2/authorize?client_id=923820925651144724&permissions=8&scope=bot%20applications.commands)
+## Why 🤔
+While using a discord bot on a server, I thought that it would be pretty cool to 
+learn how these bots worked.  
+So I decided to create a bot of my own, since not only did I
+think it was cool, but I would be able to control what features I wanted/didn't want.
+## Lessons Learnt 📖
+- What is and how to use [Typescript](https://www.typescriptlang.org/).
+- How to write 🅾️bject 🅾️riented code to make the project more maintainable.
+- How to better handle asyncronous code.
+- What Javascript promises are.
+## Resources
+[DiscordJS Documentation](https://discord.js.org/#/docs/main/stable/general/welcome) 
 
-<h2 align="center">Features</h2>
-<p>Features may be lacking as of <b>now</b> but if you have any requests, do feel free to contact me 😊.
+[DiscordJS Discord Community Server](https://discord.gg/djs)
 
-<ul>
-    <li> • 📷 Images :  <code>coffee</code>, <code>food</code>, <code>holo</code> etc..</li>
-    <li> • 🔨 Server Moderation : <code>ban</code>, <code>unban</code>, <code>mute</code>, <code>unmute</code> etc..</li>
-    <li> • 🎧 Music : <code>play</code>, <code>pause</code>, <code>loop</code>, <code>skip</code> etc..</li>
-    <li> • 🔧 Utility : <code>ping</code>, <code>getping</code> etc..</li>
-    <li> • 🙈 Hidden : hmm what is this about?</li>
-</ul>
+[The Net Ninja Object Oriented Javascript Tutorial](https://www.youtube.com/watch?v=4l3bTDlT6ZI&list=PL4cUxeGkcC9i5yvDkJgt60vNVWffpblB7&ab_channel=TheNetNinja)
 
-<h2 align="center">📝 Future plans </h2>
-<ul>
-    <li> • Code optimization / cleaner interface</li>
-    <li> • Interaction with <a href="leetcode.com">leetcode's</a> api</li>
-    <li> • Interaction with <a href="https://developer.riotgames.com">riotgames'</a> api</li>
-    <li> • Weather alerts and forecasts using <a href="https://www.weatherapi.com/">weatherapi</a></li>
-    <li> • Crypto, stock and ETF alerts / infomation?</li>
-</ul>
+[Mozilla Web Docs (Async Functions)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
-<h2 align="center">📝 License</h2>
-<p>Feel free to take any of my code to use in your projects.</p>
-<p>I am more than happy to share my work with anyone! I just ask that you credit me accordingly if you have the time or space to do so 🤗.</p>
+[Mozilla Web Docs (Promises)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+## Features
+## Environment Variables
+To run this project, you will need to add the following environment variables to your .env file
+
+Required :`DISCORD_TOKEN`  
+Optional : `GUILD_ID`
