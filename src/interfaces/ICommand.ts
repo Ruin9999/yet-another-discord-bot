@@ -19,5 +19,5 @@ export default interface ICommand {
     userPermissions : string[];
     botPermissions : string[];
     run: IRun;
-    callback: Function;
+    callback: ICallback;
 } 
